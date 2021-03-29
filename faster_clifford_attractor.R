@@ -21,7 +21,7 @@ n_plots <- 100
 #set.seed(1234561)
 
 output_loc <- "D:/dump/clifford/"
-n_iter = 50*10^6
+n_iter = 100*10^6
 alpha = 0.025
 res = 2*c(2560, 1440)
 
@@ -36,7 +36,9 @@ params <- matrix(
     ncol = 4
 )
 
-params = matrix(c(1.359, 1.126, -1.793, -1.336), nrow=1)
+# TEST SET
+#params = matrix(c(1.359, 1.126, -1.793, -1.336), nrow=1)
+#colour_option = "C"
 
 # Loop that saves down png's of the clifford attractos
 for (i in 1:n_plots){
@@ -47,7 +49,7 @@ for (i in 1:n_plots){
         "\n"
     )
     
-    colour_option = sample(c("A", "B", "C", "D", "E", "bw"), 1)
+    #colour_option = sample(c("A", "B", "C", "D", "E", "BW"), 1) # cividis is meh
     
     # Obtain matrix of points
     # Print status
@@ -69,15 +71,15 @@ for (i in 1:n_plots){
     # Obtain colours for points
     cat(
         as.character(Sys.time()),
-        paste0("\tObtaining colours"),
+        paste0("\tObtaining colours\t", colour_option),
         "\n"
     )
-    if (colour_option == "bw"){
+    if (colour_option == "BW"){
         cliff_cols = rgb(0, 0, 0, alpha = alpha)
         cliff_cols_mat = drop(cliff_cols_mat)
     } else {
         available_cols <- viridis(
-            n = 1024*8, 
+            n = 1024*16, 
             alpha = alpha, 
             begin = 0, 
             end = 1, 
@@ -86,7 +88,7 @@ for (i in 1:n_plots){
         )
         cliff_cols <- map2color(
             cliff_angle, 
-            c(available_cols)#, rev(available_cols))
+            c(available_cols, rev(available_cols))
         )
         # convert to matrix
         cliff_cols_mat = col2rgb(cliff_cols, alpha = TRUE)[,-1]
@@ -98,7 +100,7 @@ for (i in 1:n_plots){
     output_file <- paste0(
         output_loc,
         format(Sys.time(), "%Y%m%d_%H%M%S"),
-        "_clifford_",
+        "_clifford_", colour_option, "_",
         params[1],"_",params[2],"_",params[3],"_",params[4],"_",n_iter/10^6,
         ".png"
     )
@@ -106,7 +108,7 @@ for (i in 1:n_plots){
     # Output image directly to disk
     cat(
         as.character(Sys.time()),
-        paste0("\tPlotting\t1")
+        paste0("\tPlotting.")
     )
     png(
         output_file,
@@ -117,7 +119,7 @@ for (i in 1:n_plots){
         antialias = "cleartype"
         
     )
-    cat("\t2")
+    cat(".")
     # NEW method
     plot(scattermore(
         xy = cliff_points[-1,],
@@ -126,9 +128,11 @@ for (i in 1:n_plots){
         cex = 1,
         output.raster = TRUE
     ))
-    cat("\tDone")
+    cat(".")
     dev.off()
-
+    cat(". Done")
+    
+    
 }
 
 
