@@ -45,3 +45,33 @@ previous point. The *a*, *b*, *c*, *d* parameters are randomly drawn from 
 ![example 14](samples/small/20210330_134819_clifford_C_1_-2.6119_0.8046_-0.1793_-0.4862_100.jpg)
 
 ![example 15](samples/small/20210330_171316_clifford_V_1_-2.0935_2.6237_-0.9275_2.4008_100.jpg)
+
+![example 16](samples/small/20210330_191840_clifford_B_1_-2.7006_1.7432_0.8865_-0.2933_100.jpg)
+
+![example 17](samples/small/20210330_214215_clifford_C_1_-0.5088_1.6786_-2.8166_1.3127_100.jpg)
+
+![example 18](samples/small/20210330_214655_clifford_C_1_-1.3618_-2.7131_-0.2887_2.8905_100.jpg)
+
+![example 19](samples/small/20210330_221059_clifford_D_1_-2.3007_-2.3398_-0.7928_-1.6104_100.jpg)
+
+![example 20](samples/small/20210331_001456_clifford_BW_1_-2.454_-2.4773_-1.0718_0.9829_100.jpg)
+
+![example 21](samples/small/20210331_015640_clifford_B_1_-0.6855_-1.4234_2.0179_-1.8058_100.jpg)
+
+![example 22](samples/small/20210331_021220_clifford_D_1_-0.3219_2.9079_2.9668_2.9399_100.jpg)
+
+![example 23](samples/small/20210331_024109_clifford_V_1_0.8702_-2.3791_1.2862_-1.5676_100.jpg)
+
+![example 24](samples/small/20210331_032256_clifford_V_1_1.0962_-1.5824_-1.6372_0.8493_100.jpg)
+
+![example 25](samples/small/20210331_053241_clifford_A_1_1.2955_-1.4677_0.6637_-1.3556_100.jpg)
+
+![example 26](samples/small/20210331_053924_clifford_BW_1_-1.1978_-0.6226_1.3906_1.6142_100.jpg)
+
+![example 27](samples/small/20210331_055517_clifford_V_1_-1.8188_-1.9963_1.4496_-2.5415_100.jpg)
+
+![example 28](samples/small/20210331_073227_clifford_E_1_-0.8123_-1.4834_-1.8811_2.4789_100.jpg)
+
+![example 29](samples/small/20210331_074854_clifford_C_1_1.1969_1.1458_2.7436_0.6551_100.jpg)
+
+![example 30](samples/small/20210330_191840_clifford_B_1_-2.7006_1.7432_0.8865_-0.2933_100.jpg)

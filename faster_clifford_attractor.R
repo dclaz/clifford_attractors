@@ -22,6 +22,7 @@ n_iter <- 100*10^6
 alpha <- 0.025
 res <- 2*c(2560, 1440)
 pointsize <- 1
+background_options <- c("black", "white") #black or white or both
 
 # Set Seed
 #set.seed(1234561)
@@ -33,7 +34,7 @@ params <- matrix(
     ncol = 4
 )
 
-# TEST SET
+# CUSTOM SET
 #params = matrix(c(1.359, 1.126, -1.793, -1.336), nrow=1)
 #colour_option = "V"
 
@@ -52,7 +53,7 @@ for (i in 1:n_plots){
     )
     
     colour_option = sample(c("A", "B", "C", "D", "E", "BW", "V"), 1) # cividis is meh
-    
+    background = sample(background_options, 1)
     # Obtain matrix of points
     # Print status
     cat(
@@ -61,7 +62,11 @@ for (i in 1:n_plots){
         "\n"
     )
     cliff_points <- cliff_rcpp(
-        n_iter, current_params[1], current_params[2], current_params[3], current_params[4]
+        n_iter,
+        current_params[1],
+        current_params[2],
+        current_params[3],
+        current_params[4]
     )
     
     # Calculate angle between successive points
@@ -76,9 +81,15 @@ for (i in 1:n_plots){
         paste0("\tObtaining colours:\t", colour_option),
         "\n"
     )
+    
     if (colour_option == "BW"){
-        cliff_cols = rgb(0, 0, 0, alpha = alpha)
-        #cliff_cols_mat = drop(cliff_cols)
+        
+        if (background == "black"){
+            cliff_cols = rgb(1, 1, 1, alpha = alpha)
+        } else if (background == "white"){
+            cliff_cols = rgb(0, 0, 0, alpha = alpha)
+        }
+
     } else if (colour_option == "V"){
         available_cols = vapor_pal_1(1024*16)
         available_cols = paste0(
@@ -104,8 +115,7 @@ for (i in 1:n_plots){
             c(available_cols, rev(available_cols))
         )
         cliff_cols <- cliff_cols[-length(cliff_cols)]
-        # convert to matrix
-        #cliff_cols_mat = col2rgb(cliff_cols, alpha = TRUE)[,-1]
+
     }
     
 
@@ -116,6 +126,7 @@ for (i in 1:n_plots){
         paste0("\tUnique points in sample:\t", n_unique_points_in_sample),
         "\n"
     )
+    
     if (n_unique_points_in_sample > 10000){
     
         # Name of output file
@@ -138,7 +149,7 @@ for (i in 1:n_plots){
             width = res[1],
             height = res[2],
             pointsize = 1,
-            bg = "white",
+            bg = background,
             antialias = "cleartype",
             quality = 100
     
@@ -153,7 +164,7 @@ for (i in 1:n_plots){
         scattermoreplot(
             cliff_points_1,
             cliff_points_2,
-            bg = "white",
+            bg = background,
             cex = pointsize,
             col = cliff_cols
         )
@@ -172,6 +183,6 @@ for (i in 1:n_plots){
 
 }
 
-# BW colour issue remains
+
 
 
