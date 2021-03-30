@@ -9,12 +9,12 @@ xₙ₊₁ = sin(*a* yₙ) + *c* cos(*a* xₙ)
 yₙ₊₁ = sin(*b* xₙ) + *d* cos(*b* yₙ)
 
 
-where *a*, *b*, *c*, *d* are constants either set by the user or drawn randomly from a U(-3, 3) distribution.
+where *a*, *b*, *c*, *d* are constants. 
 
 ## Samples
 
 In these plots, the colour is based on the angle between the current and
-previous point.
+previous point. The *a*, *b*, *c*, *d* parameters are randomly drawn from a U(-3, 3) distribution.
 
 ![example 1](samples/small/20210330_111036_clifford_C_1.359_1.126_-1.793_-1.336_100.jpg)
 
