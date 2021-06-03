@@ -13,7 +13,7 @@ where *a*, *b*, *c*, *d* are constants.
 
 ## Samples
 
-A large gallary of highe resolution Clifford Attractors can be found [here](https://imgur.com/gallery/JVEP6hW). Some low resolution examples can be found below.
+A large gallery of high resolution Clifford Attractors can be found [here](https://imgur.com/gallery/JVEP6hW). Some low resolution examples can be found below.
 
 In these plots, the colour is based on the angle between the current and
 previous point. The *a*, *b*, *c*, *d* parameters are randomly drawn from a U(-3, 3) distribution.
